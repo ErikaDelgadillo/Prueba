@@ -1,0 +1,71 @@
+
+<body>
+    <app-header></app-header>
+
+    <section id="inicio">
+        <h2>Bienvenido a mi pagina web</h2>
+        <p>Esta es una pagina web con contenido variado.</p>
+    </section>
+
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <ul>
+            <li>Diseno web</li>
+            <li>Desarrollo de aplicaciones</li>
+            <li>Consultoria en TI</li>
+        </ul>
+    </section>
+
+    <section id="portafolio">
+        <h2>Portafolio</h2>
+        <div class="proyecto">
+            <img src="/assets/proyecto1.jpg" alt="Proyecto 1">
+            <h3>Proyecto 1</h3>
+        </div>
+        <div class="proyecto">
+            <img src="/assets/proyecto2.jpg" alt="Proyecto 2">
+            <h3>Proyecto 2</h3>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div>
+            <form>
+                <label>Nombres</label><br>
+                <input type="text" [(ngModel)]="name" name="name"><br>
+                {{name}}
+                <label>Abrev:</label><br>
+                <input type="text" [(ngModel)]="abrev" name="abrev"><br>
+                {{abrev}}
+                <input type="button" value="Enviar" (click)="save()">
+            </form>
+        </div>
+        <div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nro</th>
+                        <th>Abrev.</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of dataSource; index as nro">
+                        <th>{{nro + 1}}</th>
+                        <th>{{row.abrev}}</th>
+                        <th>{{row.name}}</th>
+                        <th>
+                            <button (click)="actualizar(row.id)">Editar</button>
+                            <button (click)="borrar(row.id)">Eliminar</button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Mi Pagina Web</p>
+    </footer>
+</body>
