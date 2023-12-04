@@ -11,11 +11,13 @@ export class RegisterComponent {
 
   email:string = "";
   pass:string = "";
+  name:string = "";
+  apellido:string = "";
 
   constructor(private authService:AuthService, private router:Router){}
 
   guardar(){
-    this.authService.register(this.email, this.pass).then(res=>{
+    this.authService.register(this.email, this.pass,this.name,this.apellido).then(res=>{
       this.router.navigate(["/"])
     }).catch(error=>{
       console.log(error)

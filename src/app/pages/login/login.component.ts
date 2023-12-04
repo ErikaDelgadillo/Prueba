@@ -11,11 +11,13 @@ export class LoginComponent {
 
   email:string = "";
   pass:string = "";
+  name:string = "";
+  apellido:string = "";
 
   constructor(private authService:AuthService, private router: Router){}
 
   login(){
-    this.authService.loginwithcredentials(this.email, this.pass).then(res=>{
+    this.authService.loginwithcredentials(this.email, this.pass,this.name,this.apellido).then(res=>{
       this.router.navigate(["/"]);
     }).catch(error=>{
       console.log(error)

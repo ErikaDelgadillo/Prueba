@@ -23,12 +23,12 @@ export class AuthService {
     return this.auth.currentUser;
   }
 
-  register(email:string, pass:string)
+  register(email:string, pass:string, name:string, apellido:string)
   {
     return createUserWithEmailAndPassword(this.auth, email, pass);
   }
 
-  loginwithcredentials(user:string, pass:string){
+  loginwithcredentials(user:string, pass:string, name:string, apellido:string ){
     return signInWithEmailAndPassword(this.auth, user, pass);
   }
 
@@ -39,5 +39,37 @@ export class AuthService {
 
   logout() {
     return signOut(this.auth);
+  }
+}
+export class UserService {
+  private usuario: any = {}; 
+
+  registrarUsuario(datos: any): void {
+    this.usuario = datos;
+  }
+
+  obtenerUsuario(): any {
+    return this.usuario;
+  }
+
+  editarNombreApellido(nuevoNombre: string, nuevoApellido: string): void {
+    this.usuario.nombre = nuevoNombre;
+    this.usuario.apellido = nuevoApellido;
+  }
+}
+export class loginUsuario {
+  private usuario: any = {}; 
+
+  loginUsuario(datos: any): void {
+    this.usuario = datos;
+  }
+
+  obtenerUsuario(): any {
+    return this.usuario;
+  }
+
+  editarNombreApellido(nuevoNombre: string, nuevoApellido: string): void {
+    this.usuario.nombre = nuevoNombre;
+    this.usuario.apellido = nuevoApellido;
   }
 }
